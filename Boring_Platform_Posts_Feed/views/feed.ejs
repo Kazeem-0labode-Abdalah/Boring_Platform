@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+ body{
+     margin: 0px;
+    padding: 0px;
+}
+ .header{
+    background-color: orchid;
+    font-size: 50px;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 60px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+ }
+
+ .feed_outer_div{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 400px;
+    margin-top: 11px;
+ }
+
+ .feed_inner_div{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin-top: 10px;
+ }
+ .name_of_post_creator{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    padding-left:5px ;
+    text-align: left;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+ }
+ .date_of_post_creator{
+
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left:5px ;
+ }
+
+.text_based_post{
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left:5px ;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+.comment_outer_div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    flex-shrink:0;
+}
+.comment_outer_div_inner_div1{
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left:5px ;
+    width: 2%;
+    color: orchid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.comment_outer_div_inner_div2{
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left:5px ;
+    width: 12%;
+    color: orchid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+}
+.comment_outer_div_view_comments_button{
+    border-color: orchid;
+    color: black;
+    font-size: 20px;
+    font-family: monospace;
+    border-radius: 10px;
+    width: 20%;
+    margin-right: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    cursor: pointer;
+}
+
+.comment_outer_div_close_comments_button{
+    border-color: orchid;
+    color: black;
+    font-size: 20px;
+    font-family: monospace;
+    border-radius: 10px;
+    width: 20%;
+    margin-right: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    cursor: pointer;
+}
+
+
+
+.comment_outer_div_input_element{
+    flex: 1;
+
+}
+.comment_outer_div_submit_button{
+    width: 20%;
+    margin-left: 2px;
+    padding-left: 1px;
+    padding-right: 1px;
+    cursor: pointer;
+}
+.comment_outer_div_input_element{
+    border-radius: 10px;
+    border: 2px solid black;
+    font-style: italic;
+    font-size: 18px;
+    font-family: monospace;
+}
+.comment_outer_div_submit_button{
+    border-color: orchid;
+    color: black;
+    font-size: 20px;
+    font-family: monospace;
+    border-radius: 10px;
+  
+}
+.feed_filter{
+    margin-top: 100px;
+    margin-bottom: 0px;
+   background-color: black;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   overflow-y: auto;
+   
+
+}
+.feed_filter_input{
+    padding: 20px;
+    margin: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 30px;
+    font-size: 25px;
+    color:white ;
+    background-color: orchid;
+    cursor:pointer;
+    font-family:monospace;
+}
+
+.comment_holder{
+    background-color: orchid;
+    display: block;
+     height: 250px;
+    overflow: scroll;
+    display: none;
+}
+
+.comment_holder_inner_div{
+    background-color: white;
+    font-size: 25px;
+    font-family: 'Lucida Sans';
+    margin-top: 0px;
+    margin-bottom: 2px;
+    padding: 10px;
+   
+}
+
+.span{
+    color: orchid;
+    font-style: bold;
+    font-weight: 500px;
+}
+.name_of_post_creator_div{
+    display: flex;
+    justify-content: left;
+}
+.love_button{
+    cursor: pointer;
+    color: black;
+    border-color: orchid;
+    border-color: orchid;
+    margin-right: 2px;
+    border-radius: 8px;
+    font-size:18px;
+}
+.love_button_span{
+    cursor: pointer;
+    color: black;
+    margin-right: 2px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+#header_span{
+    color: white;
+    font-family: monospace;
+}
+.Profile_picture{
+    border-radius: 3px;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+}
+.full_profile_holder{
+    display: flex;
+    justify-content: flex-start;
+
+}
+.input_element{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+.input_element_div{
+    height: 100%;
+    width: 7%;
+    background-color: orchid;
+    background-color: black;
+}
+.comment_image{
+    width: 50%;
+    height: 5%;
+    align-items: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 20px;
+
+}
+
+@media only screen and (max-width :1100px){
+    .feed_filter{
+        flex-direction: column;
+    }
+    .feed_filter input{
+        width: 100%;
+    }
+
+    .comment_outer_div_close_comments_button{
+        width: 23%;
+    }
+    .comment_outer_div_view_comments_button{
+        width: 23%;
+    }
+    .comment_outer_div_submit_button{
+        width: 23%;
+    }
+    .name_of_post_creator{
+        flex-wrap: wrap;
+    }
+    .header{
+    height: 100px;
+    }
+   
+    #feed_filter_input_one{
+        margin-top: 50px;
+    }
+   
+}
+
+@media only screen and (max-width :200px){
+    .header{
+    height: 50px;
+    }
+   
+}
+
+@media (max-width :1200px){
+ 
+    .comment_outer_div{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    }
+    
+    .comment_outer_div_view_comments_button{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    .comment_outer_div_close_comments_button{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    .input_element_div{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+        text-align: center;
+        align-content: center;
+    }
+    .comment_outer_div_input_element{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    .comment_outer_div_submit_button{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    .love_button{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+
+    }
+    .comment_outer_div_input_element{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    .comment_outer_div_input_element{
+        width: 95%;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+
+    }
+
+
+        </style>
+    </head>
+    <body>
+<div class="header"><span id="header_span">Boring</span> PLATFORM.
+    <input type="hidden" id="session_data" value="<%=full_namex%>">
+</div>
+
+<div class="feed_filter" >
+    <form action="/full_feed" method="post">
+        <input type="submit" value="Full feed" class="feed_filter_input" id="feed_filter_input_one">
+    </form>
+
+<!--     
+    <form action="/Completed_projects" method="post">
+    <input type="submit" value="Completed Projects" class="feed_filter_input">
+</form>
+
+<form action="/Uncompleted_projects" method="post">
+    <input type="submit" value="Uncompleted Projects" class="feed_filter_input">
+</form>
+
+<form action="/Upcoming_projects" method="post">
+    <input type="submit" value="Upcoming  Projects" class="feed_filter_input">
+</form> -->
+
+
+<form action="/Beauty_and_Fashion" method="post">
+    <input type="submit" value="Beauty and Fashion" class="feed_filter_input">
+</form>
+
+<form action="/Science_and_Technology" method="post">
+    <input type="submit" value="Science and Technology" class="feed_filter_input">
+</form>
+
+<form action="/Gaming" method="post">
+    <input type="submit" value="Gaming" class="feed_filter_input">
+</form>
+
+<form action="/Marketing_and_Advertising" method="post">
+    <input type="submit" value="Marketing and Advertising" class="feed_filter_input">
+</form>
+
+<form action="/Music" method="post">
+    <input type="submit" value="Music" class="feed_filter_input">
+</form>
+
+<form action="/Finance" method="post">
+    <input type="submit" value="Finance" class="feed_filter_input">
+</form>
+
+<form action="/Entertaiment" method="post">
+    <input type="submit" value="Entertaiment" class="feed_filter_input">
+</form>
+
+<form action="/Spirituality_and_Religion" method="post">
+    <input type="submit" value="Spirituality and Religion" class="feed_filter_input">
+</form>
+
+<form action="/Parenting_and_Family" method="post">
+    <input type="submit" value="Parenting and Family" class="feed_filter_input">
+</form>
+
+<form action="/Pet_care_and_Animals" method="post">
+    <input type="submit" value="Pet care and Animals" class="feed_filter_input">
+</form>
+
+</div>
+
+    <div class="feed_outer_div">
+     
+      <%for(let i = 0; i < master_array.length ; i++){%>
+        <input type="hidden" value="false" class="love_button_boolean">
+      <div class="feed_inner_div">
+        <div class="full_profile_holder">
+        <img  src="data:image/jpeg;base64,<%=profile_pictures[i]%>" class="Profile_picture" alt="Profile Picture">  
+      <div class="name_of_post_creator_div"><button type="button" class="name_of_post_creator"><%=master_array[i][0]%></button></div>
+      </div>
+        <div class="date_of_post_creator"><%=master_array[i][1]%></div>
+        <div class="text_based_post"><%=master_array[i][2]%></div>
+
+        <div class="comment_outer_div">
+            
+            
+           <button class="love_button"><span class="love_button_span"><%=slave_array[i][0].Amount_of_love%></span>Likes</button> 
+           
+            <button class="comment_outer_div_view_comments_button">View comment</button>
+            <button class="comment_outer_div_close_comments_button">Close comment</button>
+           <!-- <button class= "input_element_div"> <input type="file" accept="image/*" class="input_element" ></button>-->
+            <textarea class="comment_outer_div_input_element" name="" id="" placeholder="i think..."></textarea>
+            <button class="comment_outer_div_submit_button">Upload comment</button>
+        </div>
+    </div>
+        <div class="comment_holder">
+                <% for(let j = 0; j < data[i].length; j++){%>
+                    <div class="comment_holder_inner_shell">
+            <div class="comment_holder_inner_div"> <span class="span"><%=omega_array[i][j].Commenter_full_name%>:</span>  <%=data[i][j].Comment_content%></div>
+            <img class="comment_image" >
+                     </div>
+                    <%}%>
+
+                   <!-- <% for(let k = 0; k < supreme_array.length; k++){%>
+                        <div class="comment_holder_inner_shell">
+                <div class="comment_holder_inner_div"> <span class="span"><%=supreme_array[k][0]%>:</span>  <%=supreme_array[k][1]%></div>
+                <img class="comment_image" src="data:image/jpeg;base64,<%=comment_pictures[k]%>" >
+                         </div>
+
+                        <%}%>-->
+        </div>
+
+      <%}%>
+
+        </div>
+
+    </div>
+    <script>
+        const upload_comment_buttons = document.getElementsByClassName("comment_outer_div_submit_button");
+        const comment_textareas = document.getElementsByClassName("comment_outer_div_input_element");
+        const poster_names = document.getElementsByClassName("name_of_post_creator");
+        const post = document.getElementsByClassName("text_based_post")
+        const view_comments = document.getElementsByClassName("comment_outer_div_view_comments_button")
+        const close_comments = document.getElementsByClassName("comment_outer_div_close_comments_button")
+        const comment_holder = document.getElementsByClassName("comment_holder");
+        const love_button = document.getElementsByClassName("love_button")
+        const love_button_boolean = document.getElementsByClassName("love_button_boolean")
+        const love_button_span = document.getElementsByClassName("love_button_span");
+        const input_element = document.getElementsByClassName("input_element")
+        let text_based_postarea_holder = "";
+       
+        
+        for(let i =0; i < upload_comment_buttons.length;i++){
+            upload_comment_buttons[i].addEventListener("click",()=>{
+
+                if(comment_textareas[i].value.trim() !=="" ){
+               let comment = comment_textareas[i].value
+               let poster_full_name = poster_names[i].textContent
+               let post_content = post[i].textContent
+
+               let session_data = document.getElementById("session_data");
+               const xhr = new XMLHttpRequest()
+               xhr.open("POST","/upload_comment",true)
+               xhr.setRequestHeader("Content-Type","application/JSON")
+               xhr.send(JSON.stringify({comment_content:comment,
+                                        poster_name:poster_full_name,
+                                        post_content :post_content,
+                                        commenter_full_name:session_data.value
+                                        
+               }))
+              //Dynamic comment updating
+            
+               const y = document.createElement("span")
+               y.className = "span"
+               y.innerHTML = session_data.value+" " +":"+"  ";
+        
+               const x = document.createElement("div")
+               x.className= "comment_holder_inner_div"
+               x.appendChild(y)
+               x.append(comment_textareas[i].value)
+               comment_holder[i].append(x)
+
+               text_based_postarea_holder = comment_textareas[i].value
+               comment_textareas[i].value=null;
+
+         }
+
+         
+         //The below is for if we were retriving images that were commented,in he ejs file allso remember to uncomment the file picker
+        //         if(comment_textareas[i].value.trim() !=="" && input_element[i].files.length === 0 ){
+        //        let comment = comment_textareas[i].value
+        //        let poster_full_name = poster_names[i].textContent
+        //        let post_content = post[i].textContent
+
+        //        let session_data = document.getElementById("session_data");
+        //        const xhr = new XMLHttpRequest()
+        //        xhr.open("POST","/upload_comment",true)
+        //        xhr.setRequestHeader("Content-Type","application/JSON")
+        //        xhr.send(JSON.stringify({comment_content:comment,
+        //                                 poster_name:poster_full_name,
+        //                                 post_content :post_content,
+        //                                 commenter_full_name:session_data.value
+                                        
+        //        }))
+        //       //Dynamic comment updating
+            
+        //        const y = document.createElement("span")
+        //        y.className = "span"
+        //        y.innerHTML = session_data.value+" " +":"+"  ";
+        
+        //        const x = document.createElement("div")
+        //        x.className= "comment_holder_inner_div"
+        //        x.appendChild(y)
+        //        x.append(comment_textareas[i].value)
+        //        comment_holder[i].append(x)
+
+        //        text_based_postarea_holder = comment_textareas[i].value
+        //        comment_textareas[i].value=null;
+
+        //  }
+         
+        //  if(input_element[i].files.length > 0 && comment_textareas[i].value.trim() !==""){
+        //      let session_data = document.getElementById("session_data");
+        //         const file = input_element[i].files[0];
+        //         let comment = comment_textareas[i].value
+        //         let poster_full_name = poster_names[i].textContent
+        //         let post_content = post[i].textContent
+        //         let commenter_full_name = session_data.value;
+        //         const formData = new FormData()
+        //         formData.append("image",file)
+        //         formData.append("comment_content",comment)
+        //         formData.append("poster_name",poster_full_name)
+        //         formData.append("post_content",post_content)
+        //         formData.append("commenter_full_name",commenter_full_name)
+        
+        //        const xhr = new XMLHttpRequest()
+        //        xhr.open("POST","/upload_comment_with_image",true)
+        //        xhr.send(formData);
+        //         //Dynamic comment updating
+
+        //         const url = URL.createObjectURL(file)
+        //         console.log(url)
+
+        //         const w =  document.createElement("div");
+            
+        //        const y = document.createElement("span")
+        //        y.className = "span"
+        //        y.innerHTML = session_data.value+" " +":"+"  ";
+        
+        //        const x = document.createElement("div")
+        //        x.className= "comment_holder_inner_div"
+        //        x.appendChild(y)
+        //        x.append(comment_textareas[i].value)
+
+
+        //        const z = document.createElement("img")
+        //        z.className = "comment_image";
+        //        z.src = url;
+        //        z.style.marginTop = 0;
+              
+        //        w.className = "comment_holder_inner_shell"
+        //        w.appendChild(x)
+        //        w.appendChild(z)
+        //        comment_holder[i].append(w)
+
+        //        comment_textareas[i].value=null;
+        //        input_element[i].type ="text"
+        //        input_element[i].type ="file"
+        //        comment_textareas[i].value=null;
+
+        //   }
+
+       
+         })
+           
+}
+
+
+       for(let i =0; i < poster_names.length;i++){
+            poster_names[i].addEventListener("click",()=>{
+            let poster_full_name = poster_names[i].textContent
+            let post_content = post[i].textContent
+            const xhr = new XMLHttpRequest()
+            xhr.open("POST","/profile",true)
+            xhr.setRequestHeader("Content-Type","application/JSON")
+            xhr.onload = function(){
+                if(xhr.status === 200){
+                    document.body.innerHTML = xhr.responseText;
+                    const upload_comment_buttons = document.getElementsByClassName("comment_outer_div_submit_button");
+        const comment_textareas = document.getElementsByClassName("comment_outer_div_input_element");
+        const poster_names = document.getElementsByClassName("name_of_post_creator");
+        const post = document.getElementsByClassName("text_based_post")
+        const view_comments = document.getElementsByClassName("comment_outer_div_view_comments_button")
+        const close_comments = document.getElementsByClassName("comment_outer_div_close_comments_button")
+        const comment_holder = document.getElementsByClassName("comment_holder");
+        const love_button = document.getElementsByClassName("love_button")
+        const love_button_boolean = document.getElementsByClassName("love_button_boolean")
+        const love_button_span = document.getElementsByClassName("love_button_span");
+        const session_data = document.getElementById("session_data");
+        
+         for(let i =0; i < love_button.length; i++){
+            love_button[i].addEventListener("click",()=>{
+                if(love_button_boolean[i].value === "false"){
+               let poster_full_name = poster_names[i].textContent
+               let post_content = post[i].textContent
+              
+               const xhr = new XMLHttpRequest()
+               xhr.open("POST","/love_post",true)
+               xhr.setRequestHeader("Content-Type","application/JSON")
+               xhr.send(JSON.stringify({poster_name:poster_full_name,
+                                        post_content :post_content
+                                        
+               }))
+               love_button_boolean[i].value = "true"
+               let value = love_button_span[i].innerHTML;
+               value = Number(value)
+               value++;
+               love_button_span[i].innerHTML = value;
+                }else if(love_button_boolean[i].value === "true"){
+
+               let poster_full_name = poster_names[i].textContent
+               let post_content = post[i].textContent
+              
+               const xhr = new XMLHttpRequest()
+               xhr.open("POST","/unlove_post",true)
+               xhr.setRequestHeader("Content-Type","application/JSON")
+               xhr.send(JSON.stringify({poster_name:poster_full_name,
+                                        post_content :post_content
+                                        
+               }))
+               love_button_boolean[i].value = "false"
+               let value = love_button_span[i].innerHTML;
+               value = Number(value)
+               value = value - 1;
+               love_button_span[i].innerHTML = value;
+
+                    
+                }
+            })
+         }
+
+        for(let i =0; i < upload_comment_buttons.length;i++){
+            upload_comment_buttons[i].addEventListener("click",()=>{
+                if(comment_textareas[i].value.trim() !=="" ){
+               let comment = comment_textareas[i].value
+               let poster_full_name = poster_names[i].textContent
+               let post_content = post[i].textContent
+               console.log(comment,post_content,poster_full_name)
+
+               const xhr = new XMLHttpRequest()
+               xhr.open("POST","/upload_comment",true)
+               xhr.setRequestHeader("Content-Type","application/JSON")
+               xhr.send(JSON.stringify({comment_content:comment,
+                                        poster_name:poster_full_name,
+                                        post_content :post_content
+                                        
+               }))
+
+                //Dynamic comment updating
+               
+               const y = document.createElement("span")
+               y.className = "span"
+               y.innerHTML = session_data.value+" " +":"+"  ";
+        
+               const x = document.createElement("div")
+               x.className= "comment_holder_inner_div"
+               x.appendChild(y)
+               x.append(comment_textareas[i].value)
+               comment_holder[i].append(x)
+
+             
+            
+              // window.alert("Your comment has been sucessfully uploaded")
+               comment_textareas[i].value=null;
+            }
+        })
+        
+}
+
+       
+for(let i = 0; i < view_comments.length;i++){
+    view_comments[i].addEventListener("click",()=>{
+            comment_holder[i].style.display = "block";
+        })
+    }  
+ 
+    for(let i = 0; i < close_comments.length;i++){
+    close_comments[i].addEventListener("click",()=>{
+            comment_holder[i].style.display = "none";
+        })
+    } 
+                }
+            }
+            xhr.onerror = function(){
+                console.log("request error")
+            }
+            
+            xhr.send(JSON.stringify({poster_full_name:poster_full_name, post_content:post_content }))  
+            })
+           
+}
+
+
+
+for(let i = 0; i < view_comments.length;i++){
+    view_comments[i].addEventListener("click",()=>{
+            comment_holder[i].style.display = "block";
+        })
+    }  
+ 
+    for(let i = 0; i < close_comments.length;i++){
+    close_comments[i].addEventListener("click",()=>{
+            comment_holder[i].style.display = "none";
+        })
+    } 
+
+
+    // for love button
+    for(let i = 0; i < love_button.length; i++){
+        love_button[i].addEventListener("click",()=>{
+            if(love_button_boolean[i].value === "false"){
+
+               let poster_full_name = poster_names[i].textContent
+               let post_content = post[i].textContent
+              
+               const xhr = new XMLHttpRequest()
+               xhr.open("POST","/love_post",true)
+               xhr.setRequestHeader("Content-Type","application/JSON")
+               xhr.send(JSON.stringify({poster_name:poster_full_name,
+                                        post_content :post_content
+                                        
+               }))
+               love_button_boolean[i].value = "true"
+               let value = love_button_span[i].innerHTML;
+               value = Number(value)
+               value++;
+               love_button_span[i].innerHTML = value;
+
+                
+            }else if (love_button_boolean[i].value === "true"){
+                let poster_full_name = poster_names[i].textContent
+               let post_content = post[i].textContent
+              
+               const xhr = new XMLHttpRequest()
+               xhr.open("POST","/unlove_post",true)
+               xhr.setRequestHeader("Content-Type","application/JSON")
+               xhr.send(JSON.stringify({poster_name:poster_full_name,
+                                        post_content :post_content
+                                        
+               }))
+               love_button_boolean[i].value = "false"
+               let value = love_button_span[i].innerHTML;
+               value = Number(value)
+               value = value - 1;
+               love_button_span[i].innerHTML = value;
+
+
+            }
+        })
+    }
+
+   
+
+    
+    </script>
+    </body>
+</html>
+

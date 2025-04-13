@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+
+.inner_div{
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+}
+.feed_outer_div{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 400px;
+    margin-top: 11px;
+ }
+
+ .feed_inner_div{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin-top: 10px;
+ }
+ .name_of_post_creator{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    padding-left:5px ;
+    text-align: left;
+ }
+ .date_of_post_creator{
+
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left:5px ;
+ }
+
+.text_based_post{
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left:5px ;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.comment_outer_div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+.comment_outer_div_inner_div1{
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left:5px ;
+    width: 2%;
+    color: orchid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.comment_outer_div_inner_div2{
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left:5px ;
+    width: 12%;
+    color: orchid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+}
+.comment_outer_div_view_comments_button{
+    border-color: orchid;
+    color: black;
+    font-size: 20px;
+    font-family: monospace;
+    border-radius: 10px;
+    width: 20%;
+    margin-right: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    cursor: pointer;
+}
+
+.comment_outer_div_close_comments_button{
+    border-color: orchid;
+    color: black;
+    font-size: 20px;
+    font-family: monospace;
+    border-radius: 10px;
+    width: 20%;
+    margin-right: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    cursor: pointer;
+}
+
+
+
+.comment_outer_div_input_element{
+    flex: 1;
+
+}
+.comment_outer_div_submit_button{
+    width: 20%;
+    margin-left: 2px;
+    padding-left: 1px;
+    padding-right: 1px;
+    cursor: pointer;
+    border-color: orchid;
+    color: black;
+}
+.comment_outer_div_input_element{
+    border-radius: 10px;
+    border: 2px solid black;
+    font-style: italic;
+    font-size: 18px;
+    font-family: monospace;
+}
+.comment_outer_div_submit_button{
+    background-color: orchid;
+    color: white;
+    font-size: 20px;
+    font-family: monospace;
+    border-radius: 10px;
+  
+}
+.feed_filter{
+    margin-top: 100px;
+    margin-bottom: 0px;
+   background-color: black;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width:100% ;
+   margin-top: 0px;
+   
+
+}
+.feed_filter_input{
+    padding: 20px;
+    margin: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 25px;
+    font-size: 25px;
+    color:white ;
+    background-color: orchid;
+    cursor:pointer
+}
+
+.comment_holder{
+    background-color: orchid;
+    display: block;
+     height: 250px;
+    overflow: scroll;
+    display: none;
+}
+
+.comment_holder_inner_div{
+    background-color: white;
+    font-size: 25px;
+    font-family: 'Lucida Sans';
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5%;
+    padding: 10px;
+   
+}
+
+.span{
+    color: orchid;
+    font-style: italic;
+}
+
+.love_button{
+    cursor: pointer;
+    border-color: orchid;
+    color: black;
+    margin-right: 2px;
+    border-radius: 8px;
+    font-size:18px;
+}
+.love_button_span{
+    cursor: pointer;
+    color: black;
+    margin-right: 2px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+
+
+@media only screen and (max-width :900px){
+    .feed_filter{
+        flex-direction: column;
+    }
+    .feed_filter input{
+        width: 100%;
+    }
+
+    .comment_outer_div_close_comments_button{
+        width: 23%;
+    }
+    .comment_outer_div_view_comments_button{
+        width: 23%;
+    }
+    .comment_outer_div_submit_button{
+        width: 23%;
+    }
+    .name_of_post_creator{
+        flex-wrap: wrap;
+    }
+    
+}
+
+
+
+
+.xyz{
+    background-color: orchid;
+    width: 100%;
+}
+
+
+@media only screen and (max-width :200px){
+    .header{
+    height: 50px;
+    }
+   
+}
+
+@media (max-width :1200px){
+ 
+    .comment_outer_div{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    }
+    
+    .comment_outer_div_view_comments_button{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    .comment_outer_div_close_comments_button{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    .input_element_div{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+        text-align: center;
+        align-content: center;
+    }
+    .comment_outer_div_input_element{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    .comment_outer_div_submit_button{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    .love_button{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+
+    }
+    .comment_outer_div_input_element{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    .comment_outer_div_input_element{
+        width: 95%;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+
+    }
+
+    </style>
+    </head>
+
+    <body>
+
+        <div class="xyz">
+            <input type="hidden" id="session_data" value="<%=full_namex%>">
+            <div class="inner_div"><%=Full_name_of_poster%></div>
+            <div  class="inner_div"><%=post_amount%> posts</div>
+            <input type="hidden" id="session_data" value="<%=full_namex%>">
+        </div>
+
+        <div class="feed_filter">
+            <form action="/full_feed" method="post">
+                <input type="submit" value="Full feed" class="feed_filter_input">
+            </form>
+        
+            
+            <form action="/Completed_projects" method="post">
+            <input type="submit" value="Completed Projects" class="feed_filter_input">
+        </form>
+        
+        <form action="/Uncompleted_projects" method="post">
+            <input type="submit" value="Uncompleted Projects" class="feed_filter_input">
+        </form>
+        
+        <form action="/Upcoming_projects" method="post">
+            <input type="submit" value="Upcoming  Projects" class="feed_filter_input">
+        </form>
+        
+        </div>
+        
+            <div class="feed_outer_div">
+
+      
+
+        <div class="feed_outer_div">
+     
+            <%for(let i = 0; i < master_array.length ; i++){%>
+             <input type="hidden" value="false" class="love_button_boolean">
+            <div class="feed_inner_div">
+            <div class="name_of_post_creator"><%=Full_name_of_poster%></div>
+              <div class="date_of_post_creator"><%=master_array[i][1]%></div>
+              <div class="text_based_post"><%=master_array[i][2]%></div>
+ 
+              <div class="comment_outer_div">
+                <button class="love_button"><span class="love_button_span"><%=slave_array[i][0].Amount_of_love%></span>Likes</button> 
+                  <button class="comment_outer_div_view_comments_button">View comment</button>
+                  <button class="comment_outer_div_close_comments_button">Close comment</button>
+                  <textarea class="comment_outer_div_input_element" name="" id="" placeholder="i think..."></textarea>
+                  <button class="comment_outer_div_submit_button">Upload comment</button>
+              </div>
+          </div>
+              <div class="comment_holder">
+                      <% for(let j = 0; j < data[i].length; j++){%>
+                  <div class="comment_holder_inner_div"> <span class="span"><%=omega_array[i][j].Commenter_full_name%>:</span> <%=data[i][j].Comment_content%></div>
+                          <%}%>
+      
+              </div>
+      
+            <%}%>
+      
+              </div>
+      
+    </body>
+</html>
