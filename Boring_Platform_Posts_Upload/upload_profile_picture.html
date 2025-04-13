@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #image_element{
+                width: 20%;
+                border-radius: 50%;
+                display: block;
+                margin-top:20px ;
+                margin-left: 35%;
+                margin-right: 35%;
+                margin-bottom: 0px;
+                height: 20%;
+            }
+            #holder{
+                margin-top: 0px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+            }
+            #profile_picture_holder{
+                align-items: center;
+                margin-bottom: 100px;
+               
+            }
+
+            .holder_buttons{
+                padding: 25px;
+                border-radius: 10px;
+                font-size: 20px;
+                font-family: monospace;
+                background-color: orchid;
+            }
+            #input_element{
+                padding: 30px;
+                border-radius: 10px;
+                font-size: 20px;
+                font-family: monospace; 
+                background-color: orchid;
+            }
+            .header{
+                background-color: orchid;
+                text-align: center;
+                padding: 20px;
+                font-family: monospace,sans-serif;
+                font-size: 40px;
+            }
+            body{
+                margin-left: 0px;
+                margin-right: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">Select a profile picture from your gallery</div>
+        <div id="profile_picture_holder">
+        <img src="" alt="" id="image_element">
+        </div>
+        <div id="holder">
+        <input type="file" accept="image/*" id="input_element" value="Select your profile picture">
+        <button class="holder_buttons" disabled >Next</button>
+    </div>
+
+        <script>
+            const input = document.getElementById("input_element")
+            const image = document.getElementById("image_element")
+            const holder_buttons = document.getElementsByClassName("holder_buttons")
+    
+            input.addEventListener("change",(e)=>{
+                if(input.files.length > 0){
+                const file = e.target.files[0];
+                image.src = URL.createObjectURL(file)
+                formData = new FormData()
+                formData.append("image",file)
+
+                const xhr = new XMLHttpRequest()
+                 xhr.open("POST","/upload",true)
+                // xhr.setRequestHeader("Content-Type","multipart/form-data",)
+                 xhr.send(formData);
+                 holder_buttons[0].disabled = false;
+                }
+
+            })
+            
+
+            holder_buttons[0].addEventListener("click",()=>{
+                const xhr = new XMLHttpRequest()
+                 xhr.open("POST","/Skip_uploading_profile_picture",true)
+                 xhr.send()
+                 xhr.onload = function(){
+                    if(xhr.status ===200){
+                        const responceText = xhr.responseText
+                        document.body.innerHTML = responceText;
+                    }
+                 }
+                
+            })
+
+           
+        </script>
+    </body>
+</html>

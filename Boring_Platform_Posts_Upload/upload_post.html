@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <style>
+        #main_div{
+    width:100%;
+    background-color: orchid;
+}
+
+.main_div_first_inner_div{
+    background-color: orchid;
+    text-align: center;
+    font-family: Lucida Sans;
+    font-size: 50px;
+    padding: 20px;
+    font-weight: 500;
+}
+
+.upload_form{
+    background-color: orchid;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.upload_form_inner_textArea_element1{
+    line-height: 27px;
+    word-wrap: break-word;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 20px;
+   width: 100%;
+   height: 100px;
+   word-wrap: break-word;
+   box-sizing: border-box;
+   padding-left: 10px;
+   padding-top: 2px;
+   margin-top: 2px;
+   margin-bottom: 7px;
+   border-radius: 20px;
+   
+}
+
+.upload_form_inner_input_element2{
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: large;
+   width: 100%;
+   box-sizing: border-box;
+   padding: 10px;
+   margin-top: 2px;
+   margin-bottom: 7px;
+   border-radius: 20px;
+   
+}
+
+.upload_button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top: 2px;
+    margin-bottom: 7px;
+    border-radius: 20px;
+    font-size: 18px;
+    color: white;
+    background-color: orchid;
+
+
+
+}
+.upload_form_inner_div{
+    background-color: black;
+    display: none;
+    flex-direction: column;
+}
+.upload_form_inner_div input,label{
+    font-family:  Helvetica;
+    font-size: 30px;
+    padding-left: 5px;
+    vertical-align: middle;
+
+}
+.upload_form_inner_div label{
+    color: white;
+}
+
+.upload_form_inner_div input{
+    
+    font-family:  Helvetica;
+    font-size: 30px;
+    padding-left: 5px;
+    vertical-align: middle;
+    margin-left: 25px;
+    display: inline-block;
+    overflow: scroll;
+}
+      </style>
+    </head>
+
+    <body>
+        <div id="main_div">
+            <div class="main_div_first_inner_div"> Upload post</div>
+            <form action="/upload_post" enctype="application/x-www-form-urlencoded" class="upload_form" method="post">
+            
+                   <textarea type="text" name="post_to_upload" class="upload_form_inner_textArea_element1" placeholder="whats on your mind" required></textarea>
+                   <div class="upload_form_inner_div">
+                    <!-- <div><label for="completed project" id="a">Completed project</label> <input type="checkbox" name="Completed project" id="x" value="Completed project"></div>
+                    <div><label for="incomplete project" id="b">Incomplete project</label> <input type="checkbox" name="Incomplete project" id="y" value="Incomplete project"></div>
+                    <div><label for="upcoming project" id="c">Upcoming project</label> <input type="checkbox" name="Upcoming project" id="z" value="Upcoming project"></div> -->
+                   <div><label for="Beauty and Fashion" class="label">Beauty and Fashion</label> <input type="checkbox" name="Beauty and Fashion" class="checkbox" value="Beauty and Fashion"></div>
+                   <div><label for="Science and Technology" class="label">Science_and_Technology</label> <input type="checkbox" name="Science and Technology" class="checkbox" value="Science and Technology"></div>
+                   <div><label for="Gaming" class="label">Gaming</label> <input type="checkbox" name="Upc" class="checkbox" value="Upcoming project"></div>
+                   <div><label for="Marketing and Advertising" class="label">Marketing and Advertising</label> <input type="checkbox" name="Marketing and Advertising" class="checkbox" value="Marketing and Advertising"></div>
+                   <div><label for="Music" class="label">Music</label> <input type="checkbox" name="Music" class="checkbox" value="Music"></div>
+                   <div><label for="Finance" class="label">Finance</label> <input type="checkbox" name="Finance" class="checkbox" value="Finance"></div>
+                   <div><label for="Entertaiment" class="label">Entertaiment</label> <input type="checkbox" name="Entertaiment" class="checkbox" value="Entertaiment"></div>
+                   <div><label for="Spirituality and Religion" class="label">Spirituality and Religion</label> <input type="checkbox" name="Spirituality and Religion" class="checkbox" value="Spirituality and Religion"></div>
+                   <div><label for="Parenting and Family" class="label">Parenting and Family</label> <input type="checkbox" name="Parenting and Family" class="checkbox" value="Parenting and Family"></div>
+                   <div><label for="Pet care and Animals" class="label">Pet care and Animals</label> <input type="checkbox" name="Pet care and Animals" class="checkbox" value="Pet care and Animals"></div>
+
+                </div>
+                   <input type="text" name="post_category" class="upload_form_inner_input_element2" id="post_category" placeholder="Post category"  readonly required >
+                    <input type="submit" value="Upload post" class="upload_button" >
+                    
+            </form>
+            
+        </div>
+        <script >
+            const a = document.getElementById("a")
+const b = document.getElementById("b")
+const c = document.getElementById("c")
+const x = document.getElementById("x")
+const y = document.getElementById("y")
+const z = document.getElementById("z")
+const post_category = document.getElementById("post_category")
+const upload_form_inner_div = document.getElementsByClassName("upload_form_inner_div");
+const label = document.getElementsByClassName("label")
+const checkbox = document.getElementsByClassName("checkbox")
+
+post_category.addEventListener("click",()=>{
+    upload_form_inner_div[0].style.display="block";
+})
+
+
+for(let i = 0; i < label.length; i++){
+    label[i].addEventListener("click",()=>{
+        post_category.value = label[i].innerHTML;
+        upload_form_inner_div[0].style.display = "none";
+    })
+}
+
+for(let i = 0; i < checkbox.length; i++){
+    checkbox[i].addEventListener("click",()=>{
+        post_category.value = checkbox[i].value;
+        upload_form_inner_div[0].style.display = "none";
+    })
+}
+
+
+// a.addEventListener("click",()=>{
+//     post_category.value = a.innerHTML;
+//     upload_form_inner_div[0].style.display = "none";
+// })
+
+// b.addEventListener("click",()=>{
+//     post_category.value = b.innerHTML;
+//     upload_form_inner_div[0].style.display = "none";
+// })
+// c.addEventListener("click",()=>{
+//     post_category.value = c.innerHTML;
+//     upload_form_inner_div[0].style.display = "none";
+// })
+// x.addEventListener("click",()=>{
+//     post_category.value = x.value;
+//     upload_form_inner_div[0].style.display = "none";
+// })
+// y.addEventListener("click",()=>{
+//     post_category.value = y.value;
+//     upload_form_inner_div[0].style.display = "none";
+// })
+// z.addEventListener("click",()=>{
+//     post_category.value = z.value;
+//     upload_form_inner_div[0].style.display = "none";
+// })
+
+        </script>
+    </body>
+</html>
